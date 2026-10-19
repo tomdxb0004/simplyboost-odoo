@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The settings are custom (x_) fields declared as data, not Python, so the
+     module is a data module: Odoo Online can install it as well as Odoo.sh and
+     self-hosted Odoo. Adding any Python file takes Odoo Online away. -->
+<odoo>
+    <record id="field_website_x_simplyboost_bot_id" model="ir.model.fields">
+        <field name="name">x_simplyboost_bot_id</field>
+        <field name="field_description">SimplyBoost Bot ID</field>
+        <field name="model_id" ref="website.model_website"/>
+        <field name="ttype">char</field>
+        <field name="size">64</field>
+        <field name="state">manual</field>
+        <field name="help">The ID of the SimplyBoost agent to show on this website. In the SimplyBoost dashboard it is under Channels, Website.</field>
+    </record>
+    <record id="field_website_x_simplyboost_data_consent" model="ir.model.fields">
+        <field name="name">x_simplyboost_data_consent</field>
+        <field name="field_description">Send visitors' chat messages to SimplyBoost</field>
+        <field name="model_id" ref="website.model_website"/>
+        <field name="ttype">boolean</field>
+        <field name="state">manual</field>
+        <field name="help">The chat runs on SimplyBoost's servers: what visitors type in the chat, the contact details they enter in its contact form and their ratings of replies are sent to SimplyBoost to answer them. Nothing is sent until this is ticked.</field>
+    </record>
+
+    <!-- The settings screen edits the current website's values. -->
+    <record id="field_res_config_settings_x_simplyboost_bot_id" model="ir.model.fields">
+        <field name="name">x_simplyboost_bot_id</field>
+        <field name="field_description">SimplyBoost Bot ID</field>
+        <field name="model_id" ref="base.model_res_config_settings"/>
+        <field name="ttype">char</field>
+        <field name="state">manual</field>
+        <field name="related">website_id.x_simplyboost_bot_id</field>
+        <field name="readonly" eval="False"/>
+        <field name="store" eval="False"/>
+    </record>
+    <record id="field_res_config_settings_x_simplyboost_data_consent" model="ir.model.fields">
+        <field name="name">x_simplyboost_data_consent</field>
+        <field name="field_description">Send visitors' chat messages to SimplyBoost</field>
+        <field name="model_id" ref="base.model_res_config_settings"/>
+        <field name="ttype">boolean</field>
+        <field name="state">manual</field>
+        <field name="related">website_id.x_simplyboost_data_consent</field>
+        <field name="readonly" eval="False"/>
+        <field name="store" eval="False"/>
+    </record>
+</odoo>

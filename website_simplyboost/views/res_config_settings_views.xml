@@ -11,12 +11,12 @@
                              help="Answer this website's visitors with your SimplyBoost AI agent. Requires a SimplyBoost account.">
                         <div class="content-group">
                             <div class="mt16">
-                                <label for="simplyboost_bot_id" string="Bot ID" class="o_light_label d-block"/>
-                                <field name="simplyboost_bot_id" class="w-100" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
+                                <label for="x_simplyboost_bot_id" string="Bot ID" class="o_light_label d-block"/>
+                                <field name="x_simplyboost_bot_id" class="w-100" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
                             </div>
                             <div class="mt16">
-                                <field name="simplyboost_data_consent"/>
-                                <label for="simplyboost_data_consent"/>
+                                <field name="x_simplyboost_data_consent"/>
+                                <label for="x_simplyboost_data_consent"/>
                             </div>
                             <div class="text-muted mt8">
                                 The chat runs on SimplyBoost's servers. What visitors type in the chat,

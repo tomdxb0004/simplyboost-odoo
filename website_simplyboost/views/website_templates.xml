@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- The widget reads its bot from the script tag's data-bot-id, so no inline
-         script is needed and the ID is only ever an escaped attribute value. -->
+         script is needed and the ID is only ever an escaped attribute value.
+         The chat loads only with the owner's consent and a Bot ID shaped like
+         a SimplyBoost one (a UUID; spaces and capitals from a copy-paste are
+         fine). No Python here: the module must stay a data module. -->
     <template id="layout" name="SimplyBoost AI agent" inherit_id="website.layout">
         <xpath expr="//body" position="inside">
-            <t t-set="simplyboost_bot_id" t-value="website and website._simplyboost_bot_id_to_render()"/>
-            <script t-if="simplyboost_bot_id" id="simplyboost-classic-script" async="async"
-                    t-att-src="website._simplyboost_widget_url()"
-                    t-att-data-bot-id="simplyboost_bot_id"></script>
+            <t t-if="website and website.x_simplyboost_data_consent">
+                <t t-set="simplyboost_bot_id" t-value="(website.x_simplyboost_bot_id or '').strip().lower()"/>
+                <script t-if="len(simplyboost_bot_id) == 36 and simplyboost_bot_id.count('-') == 4 and simplyboost_bot_id[8] == simplyboost_bot_id[13] == simplyboost_bot_id[18] == simplyboost_bot_id[23] == '-' and not simplyboost_bot_id.replace('-', '').strip('0123456789abcdef')"
+                        id="simplyboost-classic-script" async="async"
+                        src="https://get.simplyboost.io/widget.js"
+                        t-att-data-bot-id="simplyboost_bot_id"></script>
+            </t>
         </xpath>
     </template>
 </odoo>
