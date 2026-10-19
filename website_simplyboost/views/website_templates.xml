@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- The widget reads its bot from the script tag's data-bot-id, so no inline
+         script is needed and the ID is only ever an escaped attribute value. -->
+    <template id="layout" name="SimplyBoost AI chat" inherit_id="website.layout">
+        <xpath expr="//body" position="inside">
+            <t t-set="simplyboost_bot_id" t-value="website and website._simplyboost_bot_id_to_render()"/>
+            <script t-if="simplyboost_bot_id" id="simplyboost-classic-script" async="async"
+                    t-att-src="website._simplyboost_widget_url()"
+                    t-att-data-bot-id="simplyboost_bot_id"></script>
+        </xpath>
+    </template>
+</odoo>

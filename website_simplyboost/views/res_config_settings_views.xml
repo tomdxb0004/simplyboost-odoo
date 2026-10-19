@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.website.simplyboost</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='website_info_settings']" position="after">
+                <block title="AI Chatbot" id="website_simplyboost_settings" invisible="not website_id">
+                    <setting id="website_simplyboost_setting" string="AI chat assistant"
+                             help="Answer this website's visitors with your SimplyBoost chatbot. Requires a SimplyBoost account.">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="simplyboost_bot_id" string="Bot ID" class="col-lg-3 o_light_label"/>
+                                <field name="simplyboost_bot_id" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
+                            </div>
+                            <div class="mt16">
+                                <field name="simplyboost_data_consent"/>
+                                <label for="simplyboost_data_consent"/>
+                            </div>
+                            <div class="text-muted mt8">
+                                The chat runs on SimplyBoost's servers. What visitors type in the chat,
+                                the contact details they enter in its contact form and their ratings of
+                                replies are sent to SimplyBoost to answer them, together with their IP
+                                address and browser details. The chat is added to this website only when
+                                a Bot ID is set and this box is ticked.
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
