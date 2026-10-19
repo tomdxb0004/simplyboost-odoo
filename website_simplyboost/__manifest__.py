@@ -1,8 +1,8 @@
 {
-    'name': 'AI Support Agent',
-    'version': '20.0.1.1.0',
-    'summary': 'AI support agent and product specialist on your website, connected to your CRM and helpdesk through SimplyBoost',
-    'description': 'Adds your SimplyBoost AI agent to your Odoo website. Requires a SimplyBoost account.',
+    'name': 'AI Agent: Support & Leads',
+    'version': '20.0.1.2.0',
+    'summary': 'AI chatbot for customer support and lead generation on your Odoo website. Answers from your own content, captures leads and hands over to your team.',
+    'description': 'SimplyBoost AI agent (AI chatbot) for customer support and lead generation on your Odoo website. Works on Odoo Online, Odoo.sh and on-premise. Requires a SimplyBoost account.',
     'category': 'Website/Website',
     'author': 'SimplyBoost',
     'license': 'LGPL-3',
