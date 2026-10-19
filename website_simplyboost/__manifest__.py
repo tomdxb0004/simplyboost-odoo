@@ -1,8 +1,8 @@
 {
-    'name': 'Website AI Chatbot',
+    'name': 'AI Support Agent',
     'version': '18.0.1.0.0',
-    'summary': 'An AI assistant on your Odoo website that answers visitors from your own content',
-    'description': 'Adds the SimplyBoost chat widget to your Odoo website. Requires a SimplyBoost account.',
+    'summary': 'AI support agent and product specialist on your website, connected to your CRM and helpdesk through SimplyBoost',
+    'description': 'Adds your SimplyBoost AI agent to your Odoo website. Requires a SimplyBoost account.',
     'category': 'Website/Website',
     'author': 'SimplyBoost',
     'license': 'LGPL-3',

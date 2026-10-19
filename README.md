@@ -1,8 +1,9 @@
-# Odoo app: Website AI Chatbot (`website_simplyboost`)
+# Odoo app: AI Support Agent (`website_simplyboost`)
 
-Adds the SimplyBoost chat widget to an Odoo website. The owner pastes the
-chatbot's Bot ID in Website → Configuration → Settings → AI Chatbot and ticks
-the consent box; every page of that website then loads
+Puts a SimplyBoost agent (support agent and product specialist) on an Odoo
+website. The owner pastes the agent's Bot ID in Website → Configuration →
+Settings → AI Support Agent and ticks the consent box; every page of that
+website then loads
 
 ```html
 <script src="https://get.simplyboost.io/widget.js" id="simplyboost-classic-script" async data-bot-id="…"></script>
@@ -32,20 +33,26 @@ use the customer's own `/api/v1` token, entered in their Odoo.
 ## Publishing
 
 The Odoo Apps store reads a Git repository with one folder per module at its
-root and one branch per Odoo series. Do not register this repository: publish
-the module from its own repository.
+root and one branch per Odoo series. It must not read this repository, so this
+folder is published on its own to the private repository
+`tomdxb0004/simplyboost-odoo`, branch `18.0`. This folder stays the only source;
+publish with:
 
-1. Create a repository (e.g. `simplyboost-odoo`) with `website_simplyboost/`
-   at its root, on a branch named `18.0`.
-2. Before registering, add screenshots of the settings and of the chat on an
-   Odoo website to `static/description/` and show them on `index.html`; the
-   store ranks pages without them lower.
-3. Register it at apps.odoo.com/apps/upload as
-   `ssh://git@github.com/<org>/simplyboost-odoo.git#18.0` (a private repository
-   needs Odoo's deploy key).
-4. For Odoo 19, add a `19.0` branch with `version` starting `19.0.`. The
-   settings block is placed after `website_info_settings`, which both 18.0 and
-   19.0 have.
+```bash
+git subtree split --prefix integrations/odoo -b odoo-18.0-publish
+git push https://github.com/tomdxb0004/simplyboost-odoo.git odoo-18.0-publish:18.0
+git branch -D odoo-18.0-publish
+```
+
+Then register `ssh://git@github.com/tomdxb0004/simplyboost-odoo.git#18.0` at
+apps.odoo.com/apps/upload (a private repository needs Odoo's deploy key added
+to it on GitHub). For Odoo 19, add a `19.0` branch with `version` starting
+`19.0.`; the settings block is placed after `website_info_settings`, which both
+18.0 and 19.0 have.
+
+The description page shows two screenshots from a real Odoo 18 with this module
+(`screenshot_chat.png`, `screenshot_settings.png`). Retake them when the
+settings or the widget change.
 
 ## Odoo Online
 

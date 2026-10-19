@@ -18,7 +18,7 @@ class Website(models.Model):
 
     simplyboost_bot_id = fields.Char(
         string='SimplyBoost Bot ID',
-        help='The ID of the chatbot to show on this website. In the SimplyBoost dashboard it is '
+        help='The ID of the SimplyBoost agent to show on this website. In the SimplyBoost dashboard it is '
              'under Channels, Website.',
     )
     simplyboost_data_consent = fields.Boolean(
